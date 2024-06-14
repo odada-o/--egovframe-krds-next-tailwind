@@ -6,13 +6,15 @@ import Snb from '../navigation/Snb';
 import Breadcrumb from '../navigation/Breadcrumb';
 import PageTitle from '../page/PageTitle';
 import QuickNav from '../navigation/QuickNav';
+import { useMediaQuery } from 'react-responsive';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
     const location = useRouter();
     const pathname = location.pathname;
 
     const isMainPage = pathname === '/';
-    const isQuickNavPage = /\/quick-nav/.test(pathname);
+    const isQuickNavPage = /-quick$/.test(pathname);
+    // const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
     return (
         <div id="wrap">
