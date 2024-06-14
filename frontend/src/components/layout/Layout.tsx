@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import Snb from '../navigation/Snb';
 import Breadcrumb from '../navigation/Breadcrumb';
 import PageTitle from '../page/PageTitle';
+import QuickNav from '../navigation/QuickNav';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
     const location = useRouter();
@@ -35,8 +36,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                             <PageTitle />
                             <div className="conts-area quick-nav-type">
                                 <div className="conts-detail-wrap">
+                                    <QuickNav />
                                     <div className="content-wrap scroll-check">{children}</div>
                                 </div>
+                                <QuickNav />
                             </div>
                         </div>
                     </>
