@@ -1,106 +1,250 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
+import tw from 'twin.macro';
+import Inner from './Inner';
 
 const Footer = () => {
-  return (
-    <footer id="footer">
-      <div className="foot-quick">
-        <div className="inner">
-          <button
-            type="button"
-            className="link"
-            title="소속기관(지청 및 위원회) 레이어"
-            onClick="common.popupEvent('#popFootLink');"
-          >
-            소속기관(지청 및 위원회)
-          </button>
-          <button type="button" className="link" title="업무별 누리집 레이어">
-            업무별 누리집
-          </button>
-          <button
-            type="button"
-            className="link"
-            title="산하기관 및 관련단체 레이어"
-          >
-            산하기관 및 관련단체
-          </button>
-          <button type="button" className="link" title="정부기관 레이어">
-            정부기관
-          </button>
-        </div>
-      </div>
-      <div className="inner">
-        <div className="f-logo">대한민국정부</div>
-        <div className="f-cnt">
-          <div className="f-info">
-            <p className="info-addr">
-              (26464) 강원특별자치도 원주시 건강로 32(반곡동) 국민건강보험공단
-            </p>
-            <ul className="info-cs">
-              <li>
-                <strong className="strong">대표전화 1577-1000</strong>
-                <span className="span">(유료, 평일 09시~18시)</span>
-              </li>
-              <li>
-                <strong className="strong">해외이용 82-33-811-2001</strong>
-                <span className="span">(유료, 평일 09시~18시)</span>
-              </li>
-            </ul>
-          </div>
+    return (
+        <FooterContainer id="footer">
+            <QuickLinks>
+                <Inner>
+                    <QuickLink
+                        type="button"
+                        title="소속기관(지청 및 위원회) 레이어"
+                        onClick={() => alert('소속기관(지청 및 위원회)')}
+                    >
+                        소속기관(지청 및 위원회)
+                    </QuickLink>
+                    <QuickLink
+                        type="button"
+                        title="업무별 누리집 레이어"
+                    >
+                        업무별 누리집
+                    </QuickLink>
+                    <QuickLink
+                        type="button"
+                        title="산하기관 및 관련단체 레이어"
+                    >
+                        산하기관 및 관련단체
+                    </QuickLink>
+                    <QuickLink
+                        type="button"
+                        title="정부기관 레이어"
+                    >
+                        정부기관
+                    </QuickLink>
+                </Inner>
+            </QuickLinks>
+            <Inner>
+                <Logo>
+                    <img
+                        src="../../resources/img/pattern/layout/head_logo.svg"
+                        className="logo-im"
+                        alt="대한민국정부"
+                    />
+                </Logo>
+                <Content>
+                    <Info>
+                        <Address>(26464) 강원특별자치도 원주시 건강로 32(반곡동) 국민건강보험공단</Address>
+                        <ContactList>
+                            <ContactItem>
+                                <strong>대표전화 1577-1000</strong>
+                                <span>(유료, 평일 09시~18시)</span>
+                            </ContactItem>
+                            <ContactItem>
+                                <strong>해외이용 82-33-811-2001</strong>
+                                <span>(유료, 평일 09시~18시)</span>
+                            </ContactItem>
+                        </ContactList>
+                    </Info>
+                    <Links>
+                        <GoLinks>
+                            <GoLink href="#">찾아오시는 길</GoLink>
+                            <GoLink href="#">이용안내</GoLink>
+                            <GoLink href="#">직원검색</GoLink>
+                        </GoLinks>
+                        <SnsLinks>
+                            <SnsLink
+                                href="#"
+                                className="instagram"
+                            />
+                            <SnsLink
+                                href="#"
+                                className="youtube"
+                            />
+                            <SnsLink
+                                href="#"
+                                className="twitter"
+                            />
+                            <SnsLink
+                                href="#"
+                                className="facebook"
+                            />
+                            <SnsLink
+                                href="#"
+                                className="blog"
+                            />
+                        </SnsLinks>
+                    </Links>
+                </Content>
+                <Bottom>
+                    <BottomText>
+                        <Menu>
+                            <MenuItem
+                                href="#"
+                                className="point"
+                            >
+                                개인정보처리방침
+                            </MenuItem>
+                            <MenuItem href="#">저작권 정책</MenuItem>
+                            <MenuItem href="#">웹 접근성 품질인증 마크 획득</MenuItem>
+                        </Menu>
+                        <Copy>© Ministry of Education. All rights reserved.</Copy>
+                    </BottomText>
+                    <Ban>
+                        <BanText>이 누리집은 보건복지부 산하기관 누리집입니다.</BanText>
+                    </Ban>
+                </Bottom>
+            </Inner>
+        </FooterContainer>
+    );
+};
 
-          <div className="f-link">
-            <div className="link-go">
-              <a href="#" className="btn btn-txt sm ico-arr">
-                찾아오시는 길
-              </a>
-              <a href="#" className="btn btn-txt sm ico-arr">
-                이용안내
-              </a>
-              <a href="#" className="btn btn-txt sm ico-arr">
-                직원검색
-              </a>
-            </div>
-            <div className="link-sns">
-              <a href="#" className="instagram" target="_blank">
-                <span className="sr-only">인스타그램</span>
-              </a>
-              <a href="#" className="youtube" target="_blank">
-                <span className="sr-only">유튜브</span>
-              </a>
-              <a href="#" className="twitter" target="_blank">
-                <span className="sr-only">트위터</span>
-              </a>
-              <a href="#" className="facebook" target="_blank">
-                <span className="sr-only">페이스북</span>
-              </a>
-              <a href="#" className="blog" target="_blank">
-                <span className="sr-only">블로그</span>
-              </a>
-            </div>
-          </div>
-        </div>
+const FooterContainer = styled.footer`
+    ${tw`relative z-50 bg-gray-5`}
+`;
 
-        <div className="f-btm">
-          <div className="f-btm-text">
-            <div className="f-menu">
-              <a href="#" className="point">
-                개인정보처리방침
-              </a>
-              <a href="#">저작권 정책</a>
-              <a href="#">웹 접근성 품질인증 마크 획득</a>
-            </div>
-            <p className="f-copy">
-              © Ministry of Education. All rights reserved.
-            </p>
-          </div>
-          <div className="f-btm-ban">
-            <span className="ban-txt">
-              이 누리집은 보건복지부 산하기관 누리집입니다.
-            </span>
-          </div>
-        </div>
-      </div>
-    </footer>
-  )
-}
+const QuickLinks = styled.div`
+    ${tw`border-t border-b border-gray-30 bg-white`}
+    .inner {
+        ${tw`flex`}
+    }
+`;
 
-export default Footer
+// const Inner = styled.div`
+//     ${tw`flex flex-col gap-6`}
+// `;
+
+const QuickLink = styled.button`
+    ${tw`flex-1 h-14 flex items-center justify-between px-6 border-r border-gray-30`}
+    &:first-child {
+        ${tw`border-l`}
+    }
+    &::after {
+        ${tw`w-8 h-8 bg-no-repeat bg-center bg-contain`}
+        content: '';
+        background-image: url('/pattern/layout/foot_ico_plus.svg');
+    }
+    &:hover {
+        ${tw`bg-secondary-5`}
+    }
+    &:active {
+        ${tw`bg-secondary-10`}
+    }
+`;
+
+const Logo = styled.div`
+    ${tw`h-12`}
+    img {
+        ${tw`h-full`}
+    }
+`;
+
+const Content = styled.div`
+    ${tw`flex gap-6`}
+`;
+
+const Info = styled.div`
+    ${tw`flex flex-col gap-6`}
+`;
+
+const Address = styled.p`
+    ${tw`text-gray-90`}
+`;
+
+const ContactList = styled.ul`
+    ${tw`flex flex-col gap-4`}
+`;
+
+const ContactItem = styled.li`
+    ${tw`flex items-center gap-2`}
+`;
+
+const Links = styled.div`
+    ${tw`flex flex-col gap-6`}
+`;
+
+const GoLinks = styled.div`
+    ${tw`flex flex-col items-start gap-2`}
+`;
+
+const GoLink = styled.a`
+    ${tw`font-bold`}
+`;
+
+const SnsLinks = styled.div`
+    ${tw`flex gap-2`}
+`;
+
+const SnsLink = styled.a`
+    ${tw`w-10 h-10 bg-no-repeat bg-center bg-contain`}
+    &.instagram {
+        background-image: url('/pattern/layout/foot_ico_sns_Instagram.svg');
+    }
+    &.youtube {
+        background-image: url('/pattern/layout/foot_ico_sns_youtube.svg');
+    }
+    &.twitter {
+        background-image: url('/pattern/layout/foot_ico_sns_twitter.svg');
+    }
+    &.facebook {
+        background-image: url('/pattern/layout/foot_ico_sns_facebook.svg');
+    }
+    &.blog {
+        background-image: url('/pattern/layout/foot_ico_sns_blog.svg');
+    }
+`;
+
+const Bottom = styled.div`
+    ${tw`flex flex-col pt-2 gap-6 border-t border-gray-30`}
+`;
+
+const BottomText = styled.div`
+    ${tw`flex justify-between items-center gap-4`}
+`;
+
+const Menu = styled.div`
+    ${tw`flex flex-wrap`}
+`;
+
+const MenuItem = styled.a`
+    ${tw`inline-flex items-center h-10 px-4`}
+    &.point {
+        ${tw`font-bold text-secondary`}
+    }
+    &:hover {
+        ${tw`rounded-md bg-secondary-5`}
+    }
+    &:active {
+        ${tw`bg-secondary-10`}
+    }
+`;
+
+const Copy = styled.p`
+    ${tw`text-sm text-gray-70`}
+`;
+
+const Ban = styled.div`
+    ${tw`flex items-center min-h-10 px-4 rounded-md bg-white`}
+    &::before {
+        ${tw`w-10 h-6 mr-2 bg-no-repeat bg-center bg-contain`}
+        content: '';
+        background-image: url('/pattern/content/btm_ban_ico_flag.svg');
+    }
+`;
+
+const BanText = styled.span`
+    ${tw`text-sm`}
+`;
+
+export default Footer;
